@@ -1,0 +1,116 @@
+!2 Dashboard Filtering
+| script | browser test |
+| open | ${URL} |
+| click | Dashboard |
+| wait seconds | ${wait_sec} |
+| switch to next tab |
+| enter | ${PID} | as | filterrific_search_query |
+| click | Filter |
+| | '''Click "Archive Study/Project" button''' |
+| click | xpath=//*[@id="filterrific_results"]/div/table/tbody/tr[2]/td[5]/button |
+| wait seconds | ${wait_sec} |
+| click | filterrific_show_archived |
+| click | Filter |
+| | '''Click "Unarchive Study/Project" button''' |
+| click | xpath=//*[@id="filterrific_results"]/div/table/tbody/tr[2]/td[5]/button |
+| wait seconds | ${wait_sec} |
+| click | filterrific_show_archived |
+| click | Filter |
+| wait seconds | ${wait_sec} |
+| clear | filterrific_search_query |
+| wait seconds | ${wait_sec} |
+
+!2 Requests Window
+| script | browser test |
+| enter | ${PID} | as | filterrific_search_query |
+| click | Filter |
+| | '''Test "Send Notification"''' |
+| click | Requests |
+| click | Send Notification |
+| click | Ictsicarta Test |
+| enter | Test Notification | as | notification_subject |
+| enter | ${testNote} | as | notification_message_body |
+| click | Send |
+| click | ${closeUpdateMsg} |
+| | '''Test "View" action''' |
+| click | Requests |
+| click | View |
+| wait seconds | ${wait_sec} |
+| click | Close |
+| wait seconds | ${wait_sec} |
+
+!2 Study/Project Summary
+| script | browser test |
+| click | Fit Test |
+| | '''Test "Study/Project Notes"''' |
+| click | xpath=//*[@id="summary-panel"]/div[1]/div[1]/button[1] |
+| click | Add a Note |
+| enter | ${testNote} | as | note_body |
+| click | Add |
+| click | xpath=//*[@id="notes-modal"]/div/div[3]/div/button[1] |
+| | '''Test "View Study/Project Details"''' |
+| click | xpath=//*[@id="summary-panel"]/div[1]/div[1]/button[2] |
+| click | Close |
+| | '''Test "Edit Study/Project Information"''' |
+| click | xpath=//*[@id="summary-panel"]/div[1]/div[1]/button[3] |
+| enter | ${project_name} | as | protocol_short_title |
+| click | Cancel |
+
+!2 Authorized Users
+| script | browser test |
+| click | Add an Authorized User |
+| enter | Ictsicarta Test | as | xpath=//*[@id="authorized_user_search"] |
+| click | xpath=//*[@id="add-authorized-user-form"]/div/div[2]/div[2]/div/div/span/div/div/div |
+| wait seconds | ${wait_sec} |
+| click | Save |
+| | '''Check error messages''' |
+| check | value of | xpath=//*[@id="modal_errors"]/div | !-Role can't be blank
+Project rights can't be blank-! |
+| | '''Click "Credentials" dropdown and select "MD"''' |
+| click | xpath=//*[@id="new_project_role"]/div/div/div[2]/div/div/button |
+| click | xpath=//*[@id="new_project_role"]/div/div/div[2]/div/div/div/ul/li[2]/a |
+| | '''Click "Institution" dropdown and select "University of Iowa"''' |
+| click | xpath=//*[@id="new_project_role"]/div/div/div[4]/div[1]/div/div/button |
+| click | xpath=//*[@id="new_project_role"]/div/div/div[4]/div[1]/div/div/div/ul/li[2]/a |
+| | '''Click "College" dropdown and select "Institute for Clinical and Translational Science"''' |
+| click | xpath=//*[@id="new_project_role"]/div/div/div[4]/div[2]/div/div/button |
+| click | xpath=//*[@id="new_project_role"]/div/div/div[4]/div[2]/div/div/div/ul/li[11]/a |
+| | '''Click "Department" dropdown and select "Institute for Clin and Trans Scien"''' |
+| click | xpath=//*[@id="new_project_role"]/div/div/div[4]/div[3]/div/div/button |
+| click | xpath=//*[@id="new_project_role"]/div/div/div[4]/div[3]/div/div/div/ul/li[2]/a |
+| enter | 555-555-5555 | as | project_role_identity_attributes_phone |
+| | '''Click "Role" dropdown and select "Co-Investigator"''' |
+| click | xpath=//*[@id="new_project_role"]/div/div/div[7]/div/div/button |
+| click | xpath=//*[@id="new_project_role"]/div/div/div[7]/div/div/div/ul/li[3]/a |
+| enter | Test | as | project_role_identity_attributes_era_commons_name |
+| | '''Click "Subspecialty" dropdown and select "ALLIED HEALTH (6100)"''' |
+| click | xpath=//*[@id="new_project_role"]/div/div/div[6]/div/div/button |
+| click | xpath=//*[@id="new_project_role"]/div/div/div[6]/div/div/div/ul/li[2]/a |
+| click | project_role_project_rights_approve |
+| wait seconds | ${wait_sec} |
+| click | Save |
+| wait seconds | ${wait_sec} |
+| | '''Click "Edit" button for added user''' |
+| click | xpath=//*[@id="associated-users-table"]/tbody/tr[2]/td[6]/button |
+| click | xpath=//*[@id="cancel_protocol_rights_button"] |
+| | '''Click "Delete" button for added user (Doesn't work right now)''' |
+| | xpath=//*[@id="associated-users-table"]/tbody/tr[2]/td[7]/button |
+| | '''Click "View" button on bottom-most Service Request''' |
+| click | xpath=//*[@id="service-requests-panel"]/div[2]/div[last()]/div[2]/div/div[1]/div[2]/div[2]/table/tbody/tr/td[6]/button |
+| wait seconds | ${wait_sec} |
+| press | escape |
+
+!2 Documents
+| script | browser test |
+| click | Add a Document |
+| | ''' Check error messages''' |
+| click | Upload |
+| check | value of | xpath=//*[@id="modal_errors"]/div | !-Doc type can't be blank
+Document can't be blank-! |
+| | ''' Click "Document Type" dropdown and select "Protocol" ''' |
+| click | xpath=//*[@id="new_document"]/div[2]/div[2]/div/div[1]/div/div/button |
+| click | xpath=//*[@id="new_document"]/div[2]/div[2]/div/div[1]/div/div/div/ul/li[2]/a |
+| | ''' Click "Allow Access" dropdown and select first option ''' |
+| click | xpath=//*[@id="new_document"]/div[2]/div[2]/div/div[4]/div/div/button |
+| click | xpath=//*[@id="new_document"]/div[2]/div[2]/div/div[4]/div/div/div/ul/li/a |
+| click | xpath=//*[@id="new_document"]/div[3]/div/button |

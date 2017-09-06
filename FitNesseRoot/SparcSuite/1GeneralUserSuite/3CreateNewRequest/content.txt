@@ -1,0 +1,70 @@
+!1 Create Request (Existing Project)
+| script | browser test |
+| open | ${URL}/dashboard |
+| click | ${PID} |
+| click | xpath=//*[@id="service-requests-panel"]/div[2]/div/div[1]/div[1]/button |
+| click | Fitnesse Testing |
+| click | Fitnesse Test Program |
+| click | FN Core |
+| | '''Add "Per-Patient Testing" service''' |
+| click | xpath=//*[@id="program-168"]/div/div[2]/div/div[2]/div[1]/div[1]/div[2]/button |
+| wait seconds | ${wait_sec} |
+| | '''Add "Non Per-Patient Testing" service''' |
+| click | xpath=//*[@id="program-168"]/div/div[2]/div/div[2]/div[2]/div[1]/div[2]/button |
+| wait seconds | ${wait_sec} |
+| click | Continue |
+| | '''STEP 1: Review Services and Assign Protocol''' |
+| | '''Click "Edit Project/Study" button''' |
+| click | xpath=//*[@id="summary-panel"]/div[1]/div[1]/a |
+| click | Cancel |
+| wait seconds | ${wait_sec} |
+| click | Save and Continue |
+| | '''STEP 2A: Enter Dates and Arm Information''' |
+| click | project_start_date |
+| select | 0 | as | ui-datepicker-month |
+| click | project_end_date |
+| wait seconds | ${wait_sec} |
+| select | 2017 | as | data-year |
+| wait seconds | ${wait_sec} |
+| select | 0 | as | ui-datepicker-month |
+| wait seconds | ${wait_sec} |
+| click | Save and Continue |
+| | '''STEP 2B: Visit Calendar''' |
+| wait seconds | ${newpage_sec} |
+| click | Quantity/Billing Tab |
+| wait seconds | ${wait_sec} |
+| click | Consolidated Request Tab |
+| wait seconds | ${wait_sec} |
+| click | Save and Continue |
+| | '''STEP 3: Shared Documents & Notes''' |
+| wait seconds | ${newpage_sec} |
+| click | Add a Document |
+| wait seconds | ${wait_sec} |
+| press | Escape |
+| wait seconds | ${wait_sec} |
+| click | Add a Note |
+| enter | Testing the Documents notes | as | note_body |
+| click | Add |
+| wait seconds | ${wait_sec} |
+| click | Save and Continue |
+| | '''STEP 4: Review Your Request''' |
+| wait seconds | ${newpage_sec} |
+| click | Submit Request |
+| wait seconds | ${newpage_sec} |
+| | '''STEP 5: Submission Confirmation''' |
+| click | Go to Dashboard |
+| wait seconds | ${newpage_sec} |
+
+#Ideas to come back to:
+
+#"Save as Draft" button at some point through workflow.
+
+#Messing with Arms in Step 2A
+
+#Commenting up each page so we know what each step is doing.
+
+#Step 2B is only focused on checking each tab - should more be added?
+
+#Checking the Get Cost Estimate - do we want to this whole thing 2?
+
+#There'd be 2 request, one get cost and one submit to start. one would be non patient and one would be patient services.

@@ -1,0 +1,37 @@
+!1 Create New Research Study
+| script | browser test |
+| open | ${URL}/dashboard |
+| click | New Protocol |
+| click | New Study |
+| click | Save |
+| wait seconds | ${wait_sec} |
+| check | value of | xpath=//*[@id="flashes_container"]/div | !-Project roles identity can't be blank
+Sponsor name can't be blank
+Short title can't be blank
+Title can't be blank
+Funding status can't be blank-! |
+| enter | Test Study | as | protocol_short_title |
+| enter | Test Study | as | protocol_title |
+| enter | Test Testington | as | protocol_sponsor_name |
+| click | Save |
+| wait seconds | ${wait_sec} |
+| check | value of | xpath=//*[@id="flashes_container"]/div | !-Project roles identity can't be blank
+Funding status can't be blank-! |
+| | '''Open "Proposal Funding Status" dropdown and select "Funded"''' |
+| click | xpath=//*[@id="funding-status"]/div/div/button |
+| click | xpath=//*[@id="funding-status"]/div/div/div/ul/li[3]/a |
+| click | Save |
+| wait seconds | ${wait_sec} |
+| check | value of | xpath=//*[@id="flashes_container"]/div | !-Project roles identity can't be blank
+Funding source You must select a funding source-! |
+| | '''Open "Funding Source" dropdown and select "College Department"''' |
+| click | xpath=//*[@id="new_protocol"]/div[1]/div/div[1]/div[2]/div[4]/div/div/button |
+| click | xpath=//*[@id="new_protocol"]/div[1]/div/div[1]/div[2]/div[4]/div/div/div/ul/li[2]/a |
+| click | Save |
+| wait seconds | ${wait_sec} |
+| check | value of | xpath=//*[@id="flashes_container"]/div | !-Project roles identity can't be blank-! |
+| | ''' Add Primary PI''' |
+| enter | Ictsicarta Test | as | xpath=//*[@id="protocol_project_roles_attributes_0_identity_id"] |
+| click | xpath=//*[@id="project-roles"]/div[2]/div/div/span/div/div/div |
+| check | value of | primary_pi_name | !-Ictsicarta Test (ictsicarta-test@uiowa.edu)-! |
+| click | Cancel |

@@ -1,0 +1,6 @@
+| script | browser test |
+| wait seconds | ${wait_sec} |
+| enter | ${PID} | as | xpath=//*[@id="protocols_index"]/div/div/div/div[1]/div[1]/div[4]/div/input |
+| press | enter |
+| click | xpath=//*[@id="protocol-list"]/thead/tr/th[2]/div[1] |
+| click | xpath=//*[@id="protocol-list"]/tbody/tr[1]/td[2] |

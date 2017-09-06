@@ -1,0 +1,18 @@
+!define name {Test}
+| script | browser test |
+| open | ${URL}/admin |
+| enter | ${USERNAME} | as | search_term |
+| click | Search |
+| is visible | !-ictsicart-test@uiowa.edu-! |
+| click | Edit User |
+| enter | !-EDITEDictsicart-test@uiowa.edu-! | as | email |
+| enter | EDITED${name} | as | firstName |
+| enter | EDITED${name} | as | lastName |
+| click | Update User |
+| is visible | !-has been updated-! |
+| click | Edit User |
+| enter | !-ictsicart-test@uiowa.edu-! | as | email |
+| enter | ${name} | as | firstName |
+| enter | ${name} | as | lastName |
+| click | Update User |
+| is visible | !-ictsicart-test@uiowa.edu-! |

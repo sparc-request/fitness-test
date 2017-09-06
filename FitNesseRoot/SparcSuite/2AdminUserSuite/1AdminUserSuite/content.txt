@@ -1,0 +1,91 @@
+| script | browser test |
+| click | Dashboard |
+| switch to next tab |
+| enter | ${PID} | as | filterrific_search_query |
+| click | Filter |
+| click | Fit Test |
+| | '''Click "Admin Edit" for last submitted request''' |
+| click | xpath=//*[@id="service-requests-panel"]/div[2]/div/div[2]/div[1]/div[1]/div[2]/div[2]/table/tbody/tr[last()]/td[6]/button[3] |
+
+!2 Notifications
+| script | browser test |
+| click | Notifications |
+| | '''''todo: Not testing this right now...need to switch to normal user account''''' |
+
+!2 History
+| script | browser test |
+| click | History |
+
+!2 Study Level Activities
+| script | browser test |
+| click | Study Level Activities |
+| | ''' Add Fulfillment ''' |
+| click | xpath=//*[@id="study-level-activities-table"]/tbody/tr/td[1]/button |
+| wait seconds | 5 |
+| click | Add Fulfillment |
+| click | date_fulfilled_field |
+| press | enter |
+| press | tab |
+| enter | 1 | as | fulfillment_time |
+| | ''' Open "Qty Type" dropdown and select "Hours" ''' |
+| click | xpath=//*[@id="new_fulfillment"]/div[2]/div[2]/div/div[3]/div/div/button |
+| click | xpath=//*[@id="new_fulfillment"]/div[2]/div[2]/div/div[3]/div/div/div/ul/li[2]/a |
+| click | Save |
+| click | Close |
+| | ''' Test other "Actions" ''' |
+| click | xpath=//*[@id="study-level-activities-table"]/tbody/tr/td[8]/div/button |
+| click | Details |
+| click | Close |
+| click | xpath=//*[@id="study-level-activities-table"]/tbody/tr/td[8]/div/button |
+| click | Notes |
+| click | Add a Note |
+| enter | ${testNote} | as | note_body |
+| click | Add |
+| click | Close |
+| click | xpath=//*[@id="study-level-activities-table"]/tbody/tr/td[8]/div/button |
+| click | Add Admin Rate |
+| click | Close |
+| click | xpath=//*[@id="study-level-activities-table"]/tbody/tr/td[8]/div/button |
+| click | Edit Activity |
+| enter | 2 | as | line_item_quantity |
+| click | in_process_date_field |
+| press | enter |
+| press | tab |
+| press | enter |
+| click | Save |
+| click | Close |
+
+!2 Study Schedule
+| script | browser test |
+| click | Study Schedule |
+| click | Consolidated Request Tab |
+| click | Quantity/Billing Tab |
+| click | Template Tab |
+| | '''''todo: lots of misc stuff here''''' |
+| | '''''can't delete arms (popups), so not testing adds/edits''''' |
+
+!2 Request Details
+| script | browser test |
+| click | Request Details |
+| click | protocol_start_date_picker |
+| press | tab |
+| press | tab |
+| press | tab |
+| press | enter |
+
+!2 Update Status and Owner
+| script | browser test |
+| click | ${closeUpdateMsg} |
+| | '''Open "Owner" dropdown and select "Ictsicarta Test"''' |
+| click | xpath=//*[@id="service_request_owner_dropdown"]/div/button |
+| wait seconds | 5 |
+| click | xpath=//*[@id="service_request_owner_dropdown"]/div/div/ul/li[3]/a |
+| wait seconds | 5 |
+
+| script | browser test |
+| | '''Open "Status" dropdown and select "Completed"''' |
+| click | xpath=//*[@id="service_request_status_dropdown"]/div/button |
+| wait seconds | 5 |
+| click | xpath=//*[@id="service_request_status_dropdown"]/div/div/ul/li[3]/a |
+| wait seconds | 5 |
+| click | Send to Fulfillment |

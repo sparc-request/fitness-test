@@ -1,0 +1,59 @@
+| script | browser test |
+| click | Participant List |
+| click | Create New Participant |
+| click | Save Participant |
+| | '''Check for error messages''' |
+| check | value of | xpath=//*[@id="modal_errors"] | !-Last name can't be blank
+First name can't be blank
+MRN can't be blank
+Date of birth can't be blank
+Gender can't be blank
+Ethnicity can't be blank
+Race can't be blank
+Address can't be blank
+City can't be blank
+State can't be blank
+Zip Code can't be blank-! |
+| click | Close |
+| click | Create New Participant |
+| enter | Participant | as | participant_last_name |
+| enter | Patricia | as | participant_first_name |
+| enter | P | as | participant_middle_initial |
+| enter | 0123456789 | as | participant_mrn |
+| enter | 0123456789 | as | participant_external_id |
+| | '''Open "Status" dropdown''' |
+| click | xpath=//*[@id="new_participant"]/div[2]/div[3]/div/div[6]/div/div/button |
+| | '''Select "Consented"''' |
+| click | xpath=//*[@id="new_participant"]/div[2]/div[3]/div/div[6]/div/div/div/ul/li[2]/a |
+| | '''Add date of birth''' |
+| click | dob_time_picker |
+| press | enter |
+| | '''Open "Gender" dropdown''' |
+| click | xpath=//*[@id="new_participant"]/div[2]/div[3]/div/div[8]/div/div/button |
+| | '''Select "Female"''' |
+| click | xpath=//*[@id="new_participant"]/div[2]/div[3]/div/div[8]/div/div/div/ul/li[3]/a |
+| | '''Open "Ethnicity" dropdown''' |
+| click | xpath=//*[@id="new_participant"]/div[2]/div[3]/div/div[9]/div/div/button |
+| | '''Select "Not Hispanic or Latino"''' |
+| click | xpath=//*[@id="new_participant"]/div[2]/div[3]/div/div[9]/div/div/div/ul/li[3]/a |
+| | '''Open "Race" dropdown''' |
+| click | xpath=//*[@id="new_participant"]/div[2]/div[3]/div/div[10]/div/div/button |
+| | '''Select "Unknown/Other/Unreported"''' |
+| click | xpath=//*[@id="new_participant"]/div[2]/div[3]/div/div[10]/div/div/div/ul/li[8]/a |
+| enter | 612 Wharf Ave | as | participant_address |
+| enter | Iowa City | as | participant_city |
+| | '''Open "State" dropdown''' |
+| click | xpath=//*[@id="new_participant"]/div[2]/div[3]/div/div[13]/div/div/button |
+| | '''Select "Iowa"''' |
+| click | xpath=//*[@id="new_participant"]/div[2]/div[3]/div/div[13]/div/div/div/ul/li[17]/a |
+| enter | 52246 | as | participant_zipcode |
+| enter | 012-345-6789 | as | participant_phone |
+| | '''Open "Recruitment Source" dropdown''' |
+| click | xpath=//*[@id="new_participant"]/div[2]/div[3]/div/div[16]/div/div/button |
+| | '''Select "TV Ad Campaign"''' |
+| click | xpath=//*[@id="new_participant"]/div[2]/div[3]/div/div[16]/div/div/div/ul/li[12]/a |
+| click | Save Participant |
+| click | ${closeUpdateMsg} |
+| | '''Click "Details" button for most recently created participant''' |
+| click | xpath=//*[@id="participants-list-table"]/tbody/tr[1]/td[10]/a |
+| click | Close |

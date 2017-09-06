@@ -1,0 +1,62 @@
+| script | browser test |
+| | '''Click "Study/Project Level Activities"''' |
+| click | xpath=/html/body/div[2]/div[3]/ul/li[4]/a |
+| | '''Click "View Fulfillments" for topmost SLA''' |
+| click | xpath=//*[@id="study-level-activities-table"]/tbody/tr/td/button |
+| click | Add Fulfillment |
+| click | Save |
+| | '''Check for error messages''' |
+| check | value of | xpath=//*[@id="modal_errors"] | !-Fulfillment Date can't be blank
+Quantity can't be blank
+Quantity is not a number-! |
+| click | Close |
+| click | List |
+| click | Add Fulfillment |
+| click | date_fulfilled_field |
+| press | enter |
+| enter | 1 | as | fulfillment_quantity |
+| click | Save |
+| click | Close |
+| | '''Click "Add Study/Project Level Activity"''' |
+| click | xpath=//*[@id="sla-custom-toolbar"]/button |
+| | '''Click "Save Study/Project Level Activity"''' |
+| click | xpath=//*[@id="new_line_item"]/div[3]/div/input |
+| click | Close |
+| | '''Click "Add Study/Project Level Activity"''' |
+| click | xpath=//*[@id="sla-custom-toolbar"]/button |
+| | '''Open "Service" dropdown''' |
+| click | xpath=//*[@id="new_line_item"]/div[2]/div[3]/div/div/div/div/button |
+| | '''Select "Non Per-Patient Testing"''' |
+| click | xpath=//*[@id="new_line_item"]/div[2]/div[3]/div/div/div/div/div/ul/li[2]/a |
+| enter | 1 | as | line_item_quantity_requested |
+| click | date_started_field |
+| enter | 0123456789 | as | line_item_account_number |
+| enter | Testy Testington | as | line_item_contact_name |
+| click | Close |
+| | '''Click "Actions" button''' |
+| click | xpath=//*[@id="study-level-activities-table"]/tbody/tr/td[11]/div/button |
+| | '''Click "Notes" button''' |
+| click | xpath=//*[@id="study-level-activities-table"]/tbody/tr/td[11]/div/ul/li[1]/button |
+| click | Close |
+| | '''Click "Actions" button''' |
+| click | xpath=//*[@id="study-level-activities-table"]/tbody/tr/td[11]/div/button |
+| | '''Click "Notes" button''' |
+| click | xpath=//*[@id="study-level-activities-table"]/tbody/tr/td[11]/div/ul/li[1]/button |
+| click | Add Note |
+| enter | Test note !today -xml | as | note_comment |
+| click | Save |
+| click | Close |
+| | '''Click "Actions" button''' |
+| click | xpath=//*[@id="study-level-activities-table"]/tbody/tr/td[11]/div/button |
+| | '''Click "Notes" button''' |
+| click | xpath=//*[@id="study-level-activities-table"]/tbody/tr[1]/td[11]/div/ul/li/button |
+| | '''Check that note value saved properly''' |
+| check | value of | xpath=//*[@id="modal_area"]/div/div/div[2]/div/div[last()]/div[3] | Test note !today -xml |
+| click | Close |
+| | '''Open "Actions" menu for topmost SLA''' |
+| click | xpath=//*[@id="study-level-activities-table"]/tbody/tr/td[11]/div/button |
+| | '''Click "Delete Activity"''' |
+| | xpath=//*[@id="study-level-activities-table"]/tbody/tr/td[11]/div/ul/li[4]/button '''broken''' |
+| | ''' Check for error message ''' |
+| | value of | xpath=//*[@id="flashes_container"]/div/p | This Project Level Activity has Fulfillments. It cannot be deleted |
+| | ${closeUpdateMsg} |

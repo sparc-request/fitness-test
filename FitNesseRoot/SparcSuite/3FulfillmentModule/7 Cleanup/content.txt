@@ -1,0 +1,44 @@
+!2 Remove Study Level Activity
+| script | browser test |
+| click | Study Level Activities |
+| | '''Open "Actions" menu for most recently created SLA''' |
+| click | xpath=//*[@id="study-level-activities-table"]/tbody/tr[last()]/td[11]/div/button |
+| | '''Click "Delete Activity"''' |
+| click | xpath=//*[@id="study-level-activities-table"]/tbody/tr[last()]/td[11]/div/ul/li[4]/button |
+| confirm alert |
+| click | ${closeUpdateMsg} |
+
+!2 Delete Participant
+| script | browser test |
+| click | Participant List |
+| | '''Click "Delete" button for most recently created participant''' |
+| click | xpath=//*[@id="participants-list-table"]/tbody/tr/td[12]/a |
+| confirm alert |
+| click | ${closeUpdateMsg} |
+
+!2 Remove Service
+| script | browser test |
+| click | Study Schedule |
+| click | Remove Service |
+| | '''Open "Service" dropdown''' |
+| click | xpath=//*[@id="modal_area"]/div/div/form/div[2]/div[2]/div/div[1]/div/div/button |
+| | '''Select "Per-Patient Testing"''' |
+| click | xpath=//*[@id="modal_area"]/div/div/form/div[2]/div[2]/div/div[1]/div/div/div/ul/li[2]/a |
+| | Open "Arms" dropdown |
+| click | xpath=//*[@id="modal_area"]/div/div/form/div[2]/div[2]/div/div[2]/div/div/button |
+| | Select "2nd Test Arm (Edited)" |
+| click | xpath=//*[@id="modal_area"]/div/div/form/div[2]/div[2]/div/div[2]/div/div/div/ul/li[2]/a |
+| click | Remove |
+
+!2 Remove Arm
+| script | browser test |
+| click | Remove Arm |
+| click | Close |
+| click | Remove Arm |
+| | '''Open "Arm" dropdown''' |
+| click | xpath=//*[@id="navigate_arm_form"]/div/div/div/button |
+| | '''Select most recently created arm''' |
+| click | xpath=//*[@id="navigate_arm_form"]/div/div/div/div/ul/li[last()]/a |
+| click | Remove |
+| confirm alert |
+| click | ${closeUpdateMsg} |

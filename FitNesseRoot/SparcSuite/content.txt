@@ -1,0 +1,33 @@
+!***> Required Includes and Login Variables
+
+!path fixtures
+!path fixtures/*.jar
+!define TEST_SYSTEM {slim}
+!define slim.flags {-i nl.hsac.fitnesse.slim.interaction.InterceptingInteraction}
+!define USERNAME {ictsicarttest}
+!define PASSWORD {${icart.user.password}}
+!define USERNAME_admin {ictsicartatest}
+!define PASSWORD_admin {${icarta.user.password}}
+*!
+!***> Shortcut Variables
+
+!define URL {https://rsmt-test.icts.uiowa.edu}
+!define URL_fulfill {https://fulfillment-test.icts.uiowa.edu}
+!define PID {204}
+!define project_name {Fit Test 2017}
+!define closeUpdateMsg {xpath=//*[@id="flashes_container"]/div/button}
+!define testNote {Test note !today -xml}
+!define wait_sec {2}
+!define newpage_sec {15}
+!define input {300}
+*!
+!2 If tests are failing:
+ * Ictsicartatest MUST be deleted from the Authorized User list '''(This must be done manually after each run)'''
+ * Make sure previous request is marked as "Completed"
+ * If none of the above applies, it may be time to create a fresh test project
+   * Create "Project" in I-CART, set ictsicarttest as the PI
+   * Submit and complete the first request (doesn't matter what services)
+   * Update PID and project name above (currently ${PID} - ${project_name})
+
+!2 
+!contents -R2 -g -p -f -h

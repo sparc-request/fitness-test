@@ -1,0 +1,33 @@
+| script | browser test |
+| click | Participant Tracker |
+| | '''Click "Assign Arm" button for most recently created participant''' |
+| click | xpath=//*[@id="participants-tracker-table"]/tbody/tr[last()]/td[3]/a |
+| click | Close |
+| | '''Click "Assign Arm" button for most recently created participant''' |
+| click | xpath=//*[@id="participants-tracker-table"]/tbody/tr[last()]/td[3]/a |
+| | '''Open "Current Arm" dropdown''' |
+| click | xpath=//*[@class='modal-content']/form/div[2]/div/div/div/div/div/button |
+| | '''Select most recently created arm''' |
+| click | xpath=//*[@class='modal-content']/form/div[2]/div/div/div/div/div/div/ul/li[last()]/a |
+| click | Save |
+| click | ${closeUpdateMsg} |
+| | '''Check that arm change saved properly''' |
+| check | value of | xpath=//*[@id="participants-tracker-table"]/tbody/tr/td[7]/div | 2nd Test Arm (Edited) |
+| | '''Open "Status" dropdown for most recently created participant''' |
+| click | xpath=//*[@id="participants-tracker-table"]/tbody/tr[last()]/td[8]/div/button |
+| | '''Select "Completed"''' |
+| click | xpath=/html/body/div[5]/div/ul/li[6]/a |
+| | '''Click "Notes" button''' |
+| click | xpath=//*[@id="participants-tracker-table"]/tbody/tr[last()]/td[9]/button |
+| click | Close |
+| | '''Click "Notes" button''' |
+| click | xpath=//*[@id="participants-tracker-table"]/tbody/tr[last()]/td[9]/button |
+| click | Add Note |
+| enter | Test note !today -xml | as | note_comment |
+| click | Save |
+| click | Close |
+| | '''Click "Notes" button''' |
+| click | xpath=//*[@id="participants-tracker-table"]/tbody/tr[last()]/td[9]/button |
+| | '''Check that note value saved properly''' |
+| check | value of | xpath=//*[@id="modal_area"]/div/div/div[2]/div/div[last()]/div[3] | Test note !today -xml |
+| click | Close |

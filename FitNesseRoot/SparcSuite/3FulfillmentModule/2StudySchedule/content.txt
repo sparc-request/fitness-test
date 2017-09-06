@@ -1,0 +1,66 @@
+!2 Add/Edit Arm
+| script | browser test |
+| | '''Click Project/Study Schedule''' |
+| click | xpath=/html/body/div[2]/div[3]/ul/li[1]/a |
+| click | Add Arm |
+| click | Add |
+| | '''Check for error messages''' |
+| check | value of | xpath=//*[@id="modal_errors"] | !-Arm Name can't be blank
+Subject Count is not a number
+Visit Count is not a number-! |
+| click | Close |
+| click | Add Arm |
+| enter | 2nd Test Arm | as | arm_name |
+| enter | 2 | as | arm_subject_count |
+| enter | 2 | as | arm_visit_count |
+| | '''Open "Services" dropdown''' |
+| click | css=#new_arm > div.modal-body > div:nth-child(3) > div > div:nth-child(6) > div > div > button |
+| | '''Select "Per-Patient Testing"''' |
+| click | css=#new_arm > div.modal-body > div:nth-child(3) > div > div:nth-child(6) > div > div > div > ul > li:nth-child(2) > a |
+| click | xpath=//*[@id="new_arm"]/div[2] |
+| click | Add |
+| click | Edit Arm |
+| enter | | as | arm_name |
+| enter | | as | arm_subject_count |
+| click | Save |
+| | '''Check for error messages''' |
+| check | value of | xpath=//*[@id="modal_errors"] | !-Arm Name can't be blank
+Subject Count is not a number-! |
+| click | Close |
+| click | Edit Arm |
+| | '''Open "Arm" dropdown''' |
+| click | xpath=//*[@id="navigate_arm_form"]/div/div/div/button |
+| | '''Select most recently created arm''' |
+| click | xpath=//*[@id="navigate_arm_form"]/div/div/div/div/ul/li[last()]/a |
+| enter | 2nd Test Arm (Edited) | as | arm_name |
+| enter | 5 | as | arm_subject_count |
+| click | Save |
+
+!2 Add/Edit Visits
+| script | browser test |
+| click | xpath=//*[@id="add_visit_group_button"] |
+| wait seconds | 5 |
+| click | Close |
+| click | Add Visit |
+| | '''Open "Arm" dropdown''' |
+| click | xpath=//*[@id="new_visit_group"]/div[2]/div[3]/div/div/div/div/button |
+| | '''Select most recently created arm''' |
+| click | xpath=//*[@id="new_visit_group"]/div[2]/div[3]/div/div/div/div/div/ul/li[last()]/a |
+| enter | Added Visit | as | visit_group_name |
+| enter | 3 | as | visit_group_day |
+| | '''Open "Insert into Position" dropdown''' |
+| click | xpath=//*[@id="new_visit_group"]/div[2]/div[3]/div/div[4]/div/div/button |
+| | '''Select "Add as last"''' |
+| click | xpath=//*[@id="new_visit_group"]/div[2]/div[3]/div/div[4]/div/div/div/ul/li[4]/a |
+| enter | 3 | as | visit_group_window_before |
+| enter | 3 | as | visit_group_window_after |
+| click | Add |
+| click | ${closeUpdateMsg} |
+| click | Edit Visit |
+| enter | | as | visit_group_name |
+| enter | abcd | as | visit_group_day |
+| click | Save |
+| | '''Check for error messages''' |
+| check | value of | xpath=//*[@id="modal_errors"] | !-Visit Name can't be blank
+Visit Day is not a number-! |
+| click | Close |

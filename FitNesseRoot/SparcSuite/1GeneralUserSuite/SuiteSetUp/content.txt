@@ -1,0 +1,15 @@
+!include .SparcSuite.SuiteSetUp
+!2 Login
+| script | browser test |
+| open | ${URL} |
+| click | Login |
+| enter | ${USERNAME} | as | j_username |
+
+!***< Hide
+
+| script | browser test |
+| enter | ${PASSWORD} | as | j_password |
+
+*!
+| script | browser test |
+| press | enter |

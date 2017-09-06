@@ -1,0 +1,13 @@
+| script | browser test |
+| open | https://rsmt-test.icts.uiowa.edu/ |
+| click | Help/FAQs |
+| wait seconds | 2 |
+| press | Escape |
+| | '''''todo: find out why a survey pops up here?''''' |
+| | Feedback '''BROKEN''' |
+| | cancel_feedback '''BROKEN''' |
+| click | Contact Us |
+| wait seconds | 2 |
+| press | Escape |
+| click | Continue |
+| press | Escape |
