@@ -22,7 +22,7 @@
 !define input {300}
 *!
 !2 If tests are failing:
- * Ictsicartatest MUST be deleted from the Authorized User list '''(This must be done manually after each run)'''
+ * sparctest MUST be deleted from the Authorized User list '''(This must be done manually after each run)'''
  * Make sure previous request is marked as "Completed"
  * If none of the above applies, it may be time to create a fresh test project
    * Create "Project" in I-CART, set ictsicarttest as the PI
