@@ -4,15 +4,15 @@
 !path fixtures/*.jar
 !define TEST_SYSTEM {slim}
 !define slim.flags {-i nl.hsac.fitnesse.slim.interaction.InterceptingInteraction}
-!define USERNAME {ictsicarttest}
-!define PASSWORD {${icart.user.password}}
-!define USERNAME_admin {ictsicartatest}
-!define PASSWORD_admin {${icarta.user.password}}
+!define USERNAME {sparctest}
+!define PASSWORD {${sparc.user.password}}
+!define USERNAME_admin {sparctest}
+!define PASSWORD_admin {${sparc.user.password}}
+!define URL {${sparc.url}}
+!define URL_fulfill {${sparc.fulfillment.url}}
 *!
 !***> Shortcut Variables
 
-!define URL {https://rsmt-test.icts.uiowa.edu}
-!define URL_fulfill {https://fulfillment-test.icts.uiowa.edu}
 !define PID {204}
 !define project_name {Fit Test 2017}
 !define closeUpdateMsg {xpath=//*[@id="flashes_container"]/div/button}
