@@ -3,8 +3,8 @@
 2. Paste the following command into your terminal/command prompt:  
 ```
   java -Xmx500M \
-	-Dsparc.user.password=[ICART PASSWORD] \
-	-Dsparc.user.password=[ICART ADMIN PASSWORD] \
+	-Dsparc.user.password=[SPARC PASSWORD] \
+	-Dsparc.user.password=[SPARC ADMIN PASSWORD] \
 	-Dsparc.url=[URL] \
 	-Dsparc.fulfillment.url=[Fulfillment URL] \
 	-jar fitnesse-standalone.jar -p 8080
@@ -18,3 +18,5 @@ Basic markup: http://www.fitnesse.org/FitNesse.UserGuide.FitNesseWiki.MarkupLang
 Browser test commands: http://localhost:8080/HsacExamples.SlimTests.BrowserTests  
 Symbols: http://localhost:8080/FitNesse.FullReferenceGuide.UserGuide.WritingAcceptanceTests.SliM.SymbolsInTables  
 HTML selectors: http://localhost:8080/HsacExamples.SlimTests.BrowserTests.TechnicalSelectors
+## Author: 
+- Eric Neuhaus <eric-neuhaus@uiowa.edu>
